@@ -1,9 +1,7 @@
 package sorting;
 
 /**
- * https://www.youtube.com/watch?v=TzeBrDU-JaY&list=
- * PL2_aWCzGMAwKedT2KfDMB9YA5DgASZb3U&index=5
- * 
+ *  
  * @author Ankit
  *
  */
