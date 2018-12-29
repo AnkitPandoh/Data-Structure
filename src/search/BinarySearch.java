@@ -7,7 +7,7 @@ public class BinarySearch {
 	public static void main(String[] args) {
 		int[] arr = new int[] { 2, 4, 1, 6, 8, 5, 3, 7 };
 		Arrays.sort(arr);
-		int pos = search(arr, 11);
+		int pos = search(arr, 0);
 		if (pos == -1)
 			System.out.println("Sorry number not found");
 		else
@@ -19,7 +19,7 @@ public class BinarySearch {
 		int low = 0;
 		int high = arr.length - 1;
 		while (low <= high) {
-			int mid = low + high / 2;
+			int mid = (low + high) / 2;
 			if (arr[mid] == num)
 				return mid;
 			else if (arr[mid] > num) {
