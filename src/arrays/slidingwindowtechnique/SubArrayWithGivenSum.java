@@ -27,8 +27,34 @@ public class SubArrayWithGivenSum {
             for (int i = 0; i < n; i++) {
                 arr[i] = in.readInt();
             }
+            int current_sum = arr[0];
+            int begin = 0;
+            String ans = "No";
+            for (int i = 1; i <= n; i++) {
 
-            out.printLine();
+                while (current_sum > given_sum) {
+                    current_sum -= arr[begin];
+                    begin++;
+                }
+
+                if (current_sum == given_sum) {
+                    out.printLine("begin :"+begin +", end :"+(i-1));
+                    ans = "Yes";
+                    break;
+                }
+
+                // if current_sum is zero that means we have subtracted all the
+                // numbers and didn't find the sum for subarray. Hence updating the
+                // begin.
+                if(current_sum == 0){
+                    begin = i;
+                }
+                // limiting the addition till last element
+                // as loop runs until 0 to n with n inclusive.
+                if(i < n)
+                    current_sum += arr[i];
+            }
+            out.printLine(ans);
         }
         out.close();
     }
