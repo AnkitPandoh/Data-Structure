@@ -6,13 +6,17 @@ import java.util.InputMismatchException;
 /**
  * Given an array of size n. Task is to find the subarray
  * for given sum.
- * Input:
- * 1
- * 6 33
- * 1 4 20 3 10 5
- * <p>
- * Output:
- * Yes sum of index 2,3,4 = 33
+ Test Cases:
+ 4
+ 6 15
+ 1 4 20 3 10 5
+ 6 23
+ 1 4 20 3 10 5
+ 6 7
+ 1 4 20 3 10 5
+ 8 23
+ 15 2 4 8 9 5 10 23
+
  */
 public class SubArrayWithGivenSum {
 
