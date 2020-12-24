@@ -4,8 +4,9 @@ import java.io.*;
 import java.util.InputMismatchException;
 
 /**
- * Given an array of size n. Task is to find the subarray
- * for given sum.
+ * Given an array of size n with positive numbers only.
+ * Task is to find the subarray for given sum.
+
  Test Cases:
  4
  6 15

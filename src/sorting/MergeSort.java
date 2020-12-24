@@ -1,52 +1,49 @@
 package sorting;
 
-/**
- *  
- * @author Ankit
- *
- */
+import java.util.*;
+
 public class MergeSort {
-	public static void main(String[] args) {
-		int[] arr = new int[] { 2, 4, 1, 6, 8, 5, 3, 7 };
-		System.out.print("Unsorted Array : ");
-		for (int i : arr)
-			System.out.print(i + " ");
-		System.out.println();
-		MergeSort sort = new MergeSort();
-		sort.mergeSort(arr, 0, arr.length - 1);
-		System.out.print("Sorted Array : ");
-		for (int i : arr)
-			System.out.print(i + " ");
-	}
 
-	void mergeSort(int[] arr, int low, int high) {
-		if (low == high) {
-			return;
-		}
-		int mid = (low + high) / 2;
-		mergeSort(arr, low, mid);
-		mergeSort(arr, mid + 1, high);
-		merge(arr, low, mid, high);
-	}
+    public void sort(int low, int high, int[] arr) {
+        if (low == high)
+            return;
 
-	void merge(int[] arr, int start, int mid, int end) {
-		int[] aux = new int[end - start + 1];
-		int p = start;
-		int q = mid + 1;
-		int k = 0;
-		for (int i = start; i <= end; i++) {
-			if (p > mid) {
-				aux[k++] = arr[q++];
-			} else if (q > end) {
-				aux[k++] = arr[p++];
-			} else if (arr[p] <= arr[q]) {
-				aux[k++] = arr[p++];
-			} else {
-				aux[k++] = arr[q++];
-			}
-		}
-		for (int i = 0; i < k; i++) {
-			arr[start++] = aux[i];
-		}
-	}
+        int mid = (low + high) / 2;
+
+        sort(low, mid, arr);
+        sort(mid + 1, high, arr);
+
+        merge(arr, low, mid, high);
+    }
+
+    public void merge(int[] arr, int low, int mid, int high) {
+        int[] aux = new int[low + high + 1];
+        int i = low, j = mid + 1, k = 0;
+        while (i <= mid && j <= high) {
+            if (arr[i] <= arr[j]) {
+                aux[k++] = arr[i++];
+            } else {
+                aux[k++] = arr[j++];
+            }
+        }
+        while (i <= mid) {
+            aux[k++] = arr[i++];
+        }
+        while (j <= high) {
+            aux[k++] = arr[j++];
+        }
+        k = 0;
+        for (i = low; i <= high; i++) {
+            arr[i] = aux[k++];
+        }
+    }
+
+    public static void main(String[] args) {
+        MergeSort msort = new MergeSort();
+        int[] arr = new int[]{19, 8, 13, 2, -5, 4, 100, 30};
+        Arrays.sort(arr);
+        msort.sort(0, arr.length - 1, arr);
+        for (int i : arr)
+            System.out.print(i + " ");
+    }
 }
