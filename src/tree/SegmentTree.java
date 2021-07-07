@@ -8,6 +8,7 @@ package tree;
  * 
  *         https://www.youtube.com/watch?v=BuoG-1KC4qs
  *         https://www.youtube.com/watch?v=ZBHKZF5w4YU
+ *         https://leetcode.com/articles/a-recursive-approach-to-segment-trees-range-sum-queries-lazy-propagation/
  *
  */
 public class SegmentTree {
